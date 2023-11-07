@@ -18,9 +18,13 @@ function App() {
       key == "6" ||
       key == "7" ||
       key == "8" ||
-      key == "9"
+      key == "9" ||
+      key == "." ||
+      key == "0"
     ) {
       setAns(ans != 0 ? ans + key : key);
+    } else {
+      setAns(0);
     }
   }
 
@@ -30,6 +34,13 @@ function App() {
       setS("");
     } else {
       setS(s.slice(0, s.length - 1));
+      if (ans > 10) {
+        let sr = ans.toString();
+        let res = sr.slice(0, sr.length - 1);
+        setAns(Number(res));
+      } else {
+        setAns(0);
+      }
     }
   }
   return (
@@ -39,17 +50,20 @@ function App() {
           <p className="w-full  h-1/2 text-white text-lg mb-[1px] flex justify-end items-end truncate ">
             {s}
           </p>
-          <p className="w-full  truncate h-1/2 text-white text-4xl flex justify-end items-end">
+          <p
+            id="area"
+            className="w-full   truncate h-1/2 text-white text-4xl flex justify-end items-end"
+          >
             {ans == 0 ? 0 : ans}
           </p>
         </div>
-        <div className="grid  grid-cols-4 grid-rows-5 h-full w-full">
+        <div className="grid pad grid-cols-4 grid-rows-5 h-full w-full">
           <div
             onClick={handleClear}
             id="C"
-            className="col-auto row-auto bg-[#a5a5a5] m-[2px] rounded-full font-semibold text-black text-2xl  flex items-center justify-center"
+            className="col-auto row-auto col-start-1 col-end-3 bg-[#a5a5a5] m-[2px] rounded-full font-semibold text-black text-2xl  flex items-center justify-center"
           >
-            C
+            AC
           </div>
           <div
             onClick={handleClear}
@@ -58,13 +72,7 @@ function App() {
           >
             ←
           </div>
-          <div
-            onClick={handleans}
-            id="prec"
-            className="col-auto row-auto bg-[#a5a5a5] m-[2px] rounded-full text-black text-2xl font-semibold flex items-center justify-center"
-          >
-            %
-          </div>
+
           <div
             onClick={handleans}
             id="div"
