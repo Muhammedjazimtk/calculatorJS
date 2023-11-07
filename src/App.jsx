@@ -5,6 +5,12 @@ function App() {
   const [s, setS] = useState("");
   const [ans, setAns] = useState(0);
 
+  function calc() {
+    if (eval(s) != undefined) {
+      setAns(eval(s));
+    }
+  }
+
   function handleans(e) {
     let key = e.target.innerHTML;
     setS(s + e.target.innerHTML);
@@ -44,8 +50,8 @@ function App() {
     }
   }
   return (
-    <div className="w-[100%] h-[100vh] bg-black flex justify-center items-center">
-      <div className=" w-[250px] h-[390px] rounded-md flex flex-col gap-3">
+    <div className="w-[100%] h-[100vh] bg-black flex justify-center  items-center">
+      <div className=" w-[250px] h-[390px]  rounded-md flex flex-col  gap-3">
         <div className="w-full h-[80px] pr-2 ">
           <p className="w-full  h-1/2 text-white text-lg mb-[1px] flex justify-end items-end truncate ">
             {s}
@@ -106,7 +112,7 @@ function App() {
             id="mul"
             className="col-auto row-auto bg-[#ffa214] m-[2px] rounded-full text-white text-2xl font-semibold flex items-center justify-center"
           >
-            x
+            *
           </div>
           <div
             onClick={handleans}
@@ -181,7 +187,7 @@ function App() {
           </div>
           <div
             id="equal"
-            onClick={handleans}
+            onClick={calc}
             className="col-auto row-auto bg-[#ffa214] m-[2px] rounded-full text-white text-2xl font-semibold flex items-center justify-center"
           >
             =
