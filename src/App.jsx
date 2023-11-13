@@ -50,7 +50,7 @@ function App() {
     }
   }
   return (
-    <div className="w-[100%] h-[100vh] bg-black flex justify-center  items-center">
+    <div className="w-[100%] h-[100vh] bg-black flex gap-2 flex-col justify-center  items-center">
       <div className=" w-[250px] h-[390px]  rounded-md flex flex-col  gap-3">
         <div className="w-full h-[80px] pr-2 ">
           <p className="w-full  h-1/2 text-white text-lg mb-[1px] flex justify-end items-end truncate ">
@@ -194,6 +194,15 @@ function App() {
           </div>
         </div>
       </div>
+      <a
+        className="
+      text-white"
+        href="https://github.com/Muhammedjazimtk"
+        target="_blank"
+        rel="noreferrer"
+      >
+        by jazim
+      </a>
     </div>
   );
 }
